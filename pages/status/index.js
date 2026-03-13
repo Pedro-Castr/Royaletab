@@ -15,7 +15,7 @@ export default function StatusPage() {
     <>
       <h1>Status</h1>
       <UpdatedAt isLoading={isLoading} data={data} />
-      <Connections isLoading={isLoading} data={data} />
+      <DatabaseStatus isLoading={isLoading} data={data} />
     </>
   );
 }
@@ -30,19 +30,23 @@ function UpdatedAt({ isLoading, data }) {
   return <div>Última atualização: {UpdatedAtText}</div>;
 }
 
-function Connections({ isLoading, data }) {
+function DatabaseStatus({ isLoading, data }) {
+  let versionText = "Carregando...";
   let maxConnections = "Carregando...";
   let openedConnections = "Caregando...";
 
   if (!isLoading && data) {
     maxConnections = data.dependencies.database.max_connections;
     openedConnections = data.dependencies.database.opened_connections;
+    versionText = data.dependencies.database.version;
   }
 
   return (
     <>
-      <div>Número de conexões máximas: {maxConnections}</div>
-      <div>Número de conexões abertas: {openedConnections}</div>
+      <h2>Batabase</h2>
+      <div>Versão: {versionText}</div>
+      <div>Conexões máximas: {maxConnections}</div>
+      <div>Conexões abertas: {openedConnections}</div>
     </>
   );
 }
