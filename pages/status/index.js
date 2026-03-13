@@ -43,7 +43,7 @@ function DatabaseStatus({ isLoading, data }) {
 
   return (
     <>
-      <h2>Batabase</h2>
+      <h2>Database</h2>
       <div>Versão: {versionText}</div>
       <div>Conexões máximas: {maxConnections}</div>
       <div>Conexões abertas: {openedConnections}</div>
