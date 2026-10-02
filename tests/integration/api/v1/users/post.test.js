@@ -42,11 +42,11 @@ describe("POST api/v1/users", () => {
 
       const userInDatabase = await user.findOneByUsername("usuarioteste");
       const correctPasswordMatch = await password.compare(
-        "abc123" + password.getPepper(),
+        "abc123",
         userInDatabase.password,
       );
       const incorrectPasswordMatch = await password.compare(
-        "SenhaErrada" + password.getPepper(),
+        "SenhaErrada",
         userInDatabase.password,
       );
 

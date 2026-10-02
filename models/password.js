@@ -16,7 +16,10 @@ function getPepper() {
 }
 
 async function compare(providedPassword, storedPassword) {
-  return await bcryptjs.compare(providedPassword, storedPassword);
+  return await bcryptjs.compare(
+    `${providedPassword + getPepper()}`,
+    storedPassword,
+  );
 }
 
 const password = {

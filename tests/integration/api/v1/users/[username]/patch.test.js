@@ -198,11 +198,11 @@ describe("PATCH api/v1/users/[username]", () => {
 
       const userInDatabase = await user.findOneByUsername(createdUser.username);
       const correctPasswordMatch = await password.compare(
-        "newPassword2" + password.getPepper(),
+        "newPassword2",
         userInDatabase.password,
       );
       const incorrectPasswordMatch = await password.compare(
-        "newPassword1" + password.getPepper(),
+        "newPassword1",
         userInDatabase.password,
       );
 
